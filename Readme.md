@@ -8,6 +8,7 @@
   - [Deploy](#deploy)
   - [Testes](#testes)
   - [Tecnologias](#tecnologias)
+  - [Status](#status)
 
 ### Apresentação
 
@@ -57,6 +58,9 @@ Este projeto utiliza as seguintes tecnologias:
 <img src="https://img.shields.io/badge/bootstrap-%23563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white">
 <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E">
 
+### STATUS
+
+- Completed: [![Netlify Status](https://api.netlify.com/api/v1/badges/5433c841-e738-419e-912f-d93faeac3678/deploy-status)](https://app.netlify.com/sites/teste-vaga-estagio-target/deploys)
 
 ## Considerações finais
 
