@@ -58,7 +58,7 @@ c) Explique como chegou no resultado.
     </div>
     <script>
 
-        function verificaResultado() {
+        function verificaResultado(event) {
             // a) Distância entre as cidades em km
             const distancia = 100;
 
@@ -91,40 +91,39 @@ c) Explique como chegou no resultado.
             const caminhaoBtn = document.getElementById("caminhaoBtn");
             const resultado = document.getElementById("resultado");
 
-            function verificaResultado() {
+            // Verifica qual botão foi clicado e exibe a resposta correspondente
+            if (event.target === carroBtn) {
 
-                // Verifica qual botão foi clicado e exibe a resposta correspondente
-                if (event.target === carroBtn) {
+                // Verifica que o carro está mais próximo de Ribeirão Preto
+                if (distanciaCaminhao < distanciaCarro) {
+                    resultado.innerHTML = "Errou. O caminhão estava mais próximo de Ribeirão Preto.";
+                } else {
+                    resultado.innerHTML = `Parabéns, você acertou. O carro estava mais próximo de Ribeirão Preto com a distância de ${distanciaCarro}km. `;
+                }
+            } else if (event.target === caminhaoBtn) {
 
-                    // Verifica que o carro está mais próximo de Ribeirão Preto
-                    if (distanciaCaminhao < distanciaCarro) {
-                        resultado.innerHTML = "Errou. O caminhão estava mais próximo de Ribeirão Preto.";
-                    } else {
-                        resultado.innerHTML = `Parabéns, você acertou. O carro estava mais próximo de Ribeirão Preto com a distância de ${distanciaCarro}km. `;
-                    }
-                } else if (event.target === caminhaoBtn) {
-
-                    // Verifica que o caminhão está mais longe de Ribeirão Preto
-                    if (distanciaCaminhao < distanciaCarro) {
-                        resultado.innerHTML = "Parabéns, você acertou. O caminhão estava mais próximo de Ribeirão Preto.";
-                    } else {
-                        resultado.innerHTML = `Errou. O caminhão estava mais longe de Ribeirão Preto com a distância de ${parseInt(distanciaCaminhao)}km.`;
-                    }
+                // Verifica que o caminhão está mais longe de Ribeirão Preto
+                if (distanciaCaminhao < distanciaCarro) {
+                    resultado.innerHTML = "Parabéns, você acertou. O caminhão estava mais próximo de Ribeirão Preto.";
+                } else {
+                    resultado.innerHTML = `Errou. O caminhão estava mais longe de Ribeirão Preto com a distância de ${parseInt(distanciaCaminhao)}km.`;
                 }
             }
-
-            // Adiciona um event listener para o evento de click nos botões que chama a função verificaResultado().
-            carroBtn.addEventListener("click", verificaResultado);
-            caminhaoBtn.addEventListener("click", verificaResultado);
         }
 
-        /*
-A lógica é basicamente calcular o tempo que cada veículo levará para percorrer a distância entre as cidades,
-levando em consideração a velocidade e o tempo adicional do caminhão para passar nos pedágios.
-Em seguida, é possível determinar a distância percorrida por cada veículo quando eles se cruzarem na rodovia.
-Por fim, é comparado qual dos veículos está mais próximo da cidade de Ribeirão Preto
-*/
+        // Adiciona um event listener para o evento de click nos botões que chama a função verificaResultado().
+        const carroBtn = document.getElementById("carroBtn");
+        const caminhaoBtn = document.getElementById("caminhaoBtn");
+        carroBtn.addEventListener("click", verificaResultado);
+        caminhaoBtn.addEventListener("click", verificaResultado);
     </script>
 </body>
 
 </html>
+
+<!--
+c) A lógica é basicamente calcular o tempo que cada veículo levará para percorrer a distância entre as cidades,
+levando em consideração a velocidade e o tempo adicional do caminhão para passar nos pedágios.
+Em seguida, é possível determinar a distância percorrida por cada veículo quando eles se cruzarem na rodovia.
+Por fim, é comparado qual dos veículos está mais próximo da cidade de Ribeirão Preto
+-->
