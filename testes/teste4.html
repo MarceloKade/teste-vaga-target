@@ -73,23 +73,25 @@
             // Distância percorrida pelo carro quando cruzar com o caminhão
             const distanciaCarro = velocidadeCarro * tempoCarro;
 
-            // Verifica qual veículo está mais próximo de Ribeirão Preto
 
             const carroBtn = document.getElementById("carroBtn");
             const caminhaoBtn = document.getElementById("caminhaoBtn");
             const resultado = document.getElementById("resultado");
 
             function verificaResultado() {
-                // Adicione a lógica de cálculo da distância e tempo aqui
 
                 // Verifica qual botão foi clicado e exibe a resposta correspondente
                 if (event.target === carroBtn) {
+
+                    // Verifica que o carro está mais próximo de Ribeirão Preto
                     if (distanciaCaminhao < distanciaCarro) {
                         resultado.innerHTML = "Errou. O caminhão estava mais próximo de Ribeirão Preto.";
                     } else {
                         resultado.innerHTML = `Parabéns, você acertou. O carro estava mais próximo de Ribeirão Preto com a distância de ${distanciaCarro}km. `;
                     }
                 } else if (event.target === caminhaoBtn) {
+
+                    // Verifica que o caminhão está mais longe de Ribeirão Preto
                     if (distanciaCaminhao < distanciaCarro) {
                         resultado.innerHTML = "Parabéns, você acertou. O caminhão estava mais próximo de Ribeirão Preto.";
                     } else {

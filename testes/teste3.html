@@ -53,7 +53,7 @@
             setTimeout(limpaMensagem, 3000);
         }
 
-        // Fimção que limpa a mensagem de resultado depois de 3 segundos
+        // Fimção que limpa a mensagem de resultado
         function limpaMensagem() {
             document.getElementById("resultado").innerHTML = ''
         }
@@ -62,12 +62,12 @@
         function texto(texto) {
             return document.getElementById("resultado").innerHTML = texto
         }
+        let input;
 
         /*
         Verifica o resultado da soma de números e exibe uma mensagem indicando se o usuário acertou ou errou.
         Se o usuário informar um número inválido ou deixar o campo em branco, exibe uma mensagem de erro.
         */
-        let input;
 
 
         document.getElementById("button").addEventListener("click", function () {
@@ -91,6 +91,7 @@
 
             // Altera o texto do botão
             document.getElementById("button").textContent = "Submit";
+            //Altera o texto do id 'texto'
             document.getElementById("texto").innerHTML = "Qual o próximo número? 1, 3, 5, 7, (<strong>?</strong>)"
 
             // Verifica se a aposta é igual a 9
@@ -112,6 +113,8 @@
                 }
 
                 let valorAposta = parseInt(input.value);
+
+                //sequencia de if e else, referentes a cada questão do teste, se errar, continua na mesma pergunta, se acertar, passa para a próxima pergunta
                 if (valorAposta !== 9) {
                     document.getElementById("resultado").innerHTML = "Que pena, tente novamente!";
                     limpaInput()
