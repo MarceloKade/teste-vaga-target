@@ -1,0 +1,94 @@
+<!--
+    Escreva um programa que inverta os caracteres de um string.
+
+IMPORTANTE:
+
+a) Essa string pode ser informada através de qualquer entrada de sua preferência ou pode ser previamente definida no código;
+
+b) Evite usar funções prontas, como, por exemplo, reverse
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Inverter String</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .custom-box {
+            background-color: #fff;
+            border: 1px solid #ced4da;
+            border-radius: .25rem;
+            padding: 5rem 10rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form id="inverter-form" class="form-group mt-5 custom-box">
+            <ul class="list-unstyled d-flex" style="margin-left: -140px; margin-top: -75px">
+                <li>
+                    <a class=" btn btn-primary mt-3" href="../index.html">Voltar</a>
+                </li>
+            </ul>
+            <h1>Digite seu nome</h1>
+            <label for="mensagem">Digite a mensagem:</label>
+            <input type="text" class="form-control" id="mensagem" name="mensagem" required>
+            <button type="button" class="btn btn-primary mt-3" onclick="inverter()">Submit</button>
+            <p id="resultado"></p>
+        </form>
+    </div>
+    <script>
+        // Função que foca no campo de entrada ao carregar a página
+        document.getElementById("mensagem").focus();
+
+        // Função que limpa o valor do input com id "mensagem".
+        function limpaInput() {
+            document.getElementById("mensagem").value = ''
+            setTimeout(limpaMensagem, 3000);
+        }
+
+        // Fimção que limpa a mensagem de resultado depois de 3 segundos
+        function limpaMensagem() {
+            document.getElementById("resultado").innerHTML = ''
+        }
+
+        // Função que inverte os caracteres de uma string fornecida pelo usuário e exibe o resultado na página.
+        function inverter() {
+            const mensagem = document.getElementById("mensagem").value.trim();
+            let resultado = "";
+
+            // Verifica se o campo do input está vazio antes de enviar.
+            if (mensagem === "") {
+                resultado = document.getElementById("resultado").innerHTML = "Por favor, preencha o campo de input.";
+            }
+            for (let i = mensagem.length - 1; i >= 0; i--) {
+                resultado += mensagem[i];
+            }
+            document.getElementById("resultado").textContent = resultado;
+        }
+
+        // Adiciona um evento de escuta para a tecla "Enter" pressionada no campo de entrada "mensagem" e chama a função "inverter()".
+        document.getElementById("mensagem").addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                inverter();
+                limpaInput();
+            }
+        });
+
+        // Adiciona um event listener para o evento de submissão do formulário que chama a função inverter() e previne o comportamento padrão de atualização da página ao pressionar o botão submit.
+        document.getElementById("inverter-form").addEventListener("submit", function (event) {
+            event.preventDefault();
+            inverter();
+        });
+    </script>
+</body>
+
+</html>

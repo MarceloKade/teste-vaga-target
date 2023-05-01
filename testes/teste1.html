@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Utilizando o loop while</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .custom-box {
+            background-color: #fff;
+            border: 1px solid #ced4da;
+            border-radius: .25rem;
+            padding: 5rem 10rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form id="adivinhe" class="form-group mt-5 custom-box">
+            <ul class="list-unstyled d-flex" style="margin-left: -140px; margin-top: -75px">
+                <li>
+                    <a class=" btn btn-primary mt-3" href="../index.html">Voltar</a>
+                </li>
+            </ul>
+            <h1 class="text-center">Qual o valor da soma?</h1>
+            <label for="num" class="text-center">Vamos jogar um jogo? Tente adivinhar qual é o valor da soma dos números
+                de 1 a 13. Depois
+                de pensar bem, clique no botão abaixo para ver se acertou! Boa sorte!</label>
+            <input id="num" class="form-control" placeholder="Informe o resultado">
+            <button type="button" class="btn btn-primary mt-3" onclick="verificaResultado()">Submit</button>
+            <h3 class="text-center mt-3">Resultado da soma</h3>
+            <p id="resultado" class="mt-3 text-center font-monospace font-weight-bold lead"></p>
+        </form>
+    </div>
+    <script>
+        // Função que foca no campo de entrada ao carregar a página
+        document.getElementById("num").focus();
+
+        // Função que limpa o valor do input com id "num".
+        function limpaInput() {
+            document.getElementById("num").value = ''
+            setTimeout(limpaMensagem, 3000);
+        }
+
+        // Fimção que limpa a mensagem de resultado depois de 3 segundos
+        function limpaMensagem() {
+            document.getElementById("resultado").innerHTML = ''
+        }
+
+        // Função que atualiza o texto exibido na caixa de resultado.
+        function texto(texto) {
+            return document.getElementById("resultado").innerHTML = texto
+        }
+
+        /*
+        Verifica o resultado da soma de números e exibe uma mensagem indicando se o usuário acertou ou errou.
+        Se o usuário informar um número inválido ou deixar o campo em branco, exibe uma mensagem de erro.
+        */
+        function verificaResultado() {
+            let num = document.getElementById("num").value.trim();
+            let indice = 13;
+            let soma = 0;
+            let k = 0;
+
+            // Verifica se o campo do input está vazio antes de enviar.
+            if (num === "") {
+                texto("Por favor, informe um número.");
+                return;
+            }
+
+            // Se o número for inválido, exibe uma mensagem de erro e limpa o input.
+            if (isNaN(num)) {
+                texto("Por favor, informe um número válido.");
+                limpaInput();
+                return;
+            }
+
+            // Se o número for válido, o laço de repetição irá executar enquanto a variável 'k' for menor que a variável 'indice'
+            while (k < indice) {
+                soma += k;
+                k++;
+            }
+
+            // atribui o resultado da soma na variável 'resultado'
+            let resultado = soma;
+
+            // Verifica se o número informado pelo usuário é igual ao resultado da soma e exibe uma mensagem indicando se o usuário acertou ou errou. Em seguida, limpa o campo de entrada.
+            if (num == resultado) {
+                texto(`Parabéns, você ACERTOU! O valor da soma é ${soma}`);
+            } else {
+                texto("Você ERROU! Tente outra vez");
+            }
+            limpaInput()
+        }
+
+        // Adiciona um evento de escuta para a tecla "Enter" pressionada no campo de entrada "num" e chama a função "verificaResultado()".
+        document.getElementById("num").addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                verificaResultado();
+                limpaInput();
+            }
+        });
+
+        // Adiciona um event listener para o evento de submissão do formulário que chama a função verificaResultado() e previne o comportamento padrão de atualização da página ao pressionar o botão submit.
+        document.getElementById("adivinhe").addEventListener("submit", function (event) {
+            event.preventDefault();
+            verificaResultado();
+        });
+    </script>
+</body>
+
+</html>

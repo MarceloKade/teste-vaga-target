@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Qual veículo está mais próximo de Ribeirão Preto?</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .custom-box {
+            background-color: #fff;
+            border: 1px solid #ced4da;
+            border-radius: .25rem;
+            padding: 5rem 10rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form id="adivinhe" class="form-group mt-5 custom-box" onload="verificaResultado()">
+            <ul class="list-unstyled d-flex" style="margin-left: -140px; margin-top: -75px">
+                <li>
+                    <a class=" btn btn-primary mt-3" href="../index.html">Voltar</a>
+                </li>
+            </ul>
+            <h1 class="text-center">Qual está mais perto?</h1>
+            <p class="text-center">Dois veículos (um carro e um caminhão) saem respectivamente de cidades opostas pela
+                mesma rodovia. O carro de Ribeirão Preto em direção a Franca, a uma velocidade constante de 110 km/h e o
+                caminhão de Franca em direção a Ribeirão Preto a uma velocidade constante de 80 km/h. Quando eles se
+                cruzarem na rodovia, qual estará mais próximo a cidade de Ribeirão Preto?</p>
+            <div class="d-flex justify-content-center">
+                <div class="btn-group mx-5" role="group">
+                    <button type="button" class="btn btn-primary" id="carroBtn">Carro</button>
+                </div>
+                <div class="btn-group mx-5" role="group">
+                    <button type="button" class="btn btn-primary" id="caminhaoBtn">Caminhão</button>
+                </div>
+            </div>
+            <p id="resultado" class="mt-5 text-center font-monospace font-weight-bold lead"></p>
+        </form>
+    </div>
+    <script>
+
+        function verificaResultado() {
+            // a) Distância entre as cidades em km
+            const distancia = 100;
+
+            // Velocidade do carro em km/h
+            const velocidadeCarro = 110;
+
+            // Velocidade do caminhão em km/h
+            const velocidadeCaminhao = 80;
+
+            // b) Tempo adicional do caminhão para passar em cada pedágio em minutos
+            const tempoPedagio = 5;
+
+            // Convertendo o tempo adicional do caminhão para horas
+            const tempoPedagioHoras = tempoPedagio / 60;
+
+            // Tempo que o caminhão levará para percorrer a distância entre as cidades em horas
+            const tempoCaminhao = (distancia / velocidadeCaminhao) + (tempoPedagioHoras * 2);
+
+            // Distância percorrida pelo caminhão quando cruzar com o carro
+            const distanciaCaminhao = velocidadeCaminhao * tempoCaminhao;
+
+            // Tempo que o carro levará para percorrer a distância entre as cidades em horas
+            const tempoCarro = distancia / velocidadeCarro;
+
+            // Distância percorrida pelo carro quando cruzar com o caminhão
+            const distanciaCarro = velocidadeCarro * tempoCarro;
+
+            // Verifica qual veículo está mais próximo de Ribeirão Preto
+
+            const carroBtn = document.getElementById("carroBtn");
+            const caminhaoBtn = document.getElementById("caminhaoBtn");
+            const resultado = document.getElementById("resultado");
+
+            function verificaResultado() {
+                // Adicione a lógica de cálculo da distância e tempo aqui
+
+                // Verifica qual botão foi clicado e exibe a resposta correspondente
+                if (event.target === carroBtn) {
+                    if (distanciaCaminhao < distanciaCarro) {
+                        resultado.innerHTML = "Errou. O caminhão estava mais próximo de Ribeirão Preto.";
+                    } else {
+                        resultado.innerHTML = `Parabéns, você acertou. O carro estava mais próximo de Ribeirão Preto com a distância de ${distanciaCarro}km. `;
+                    }
+                } else if (event.target === caminhaoBtn) {
+                    if (distanciaCaminhao < distanciaCarro) {
+                        resultado.innerHTML = "Parabéns, você acertou. O caminhão estava mais próximo de Ribeirão Preto.";
+                    } else {
+                        resultado.innerHTML = `Errou. O caminhão estava mais longe de Ribeirão Preto com a distância de ${parseInt(distanciaCaminhao)}km.`;
+                    }
+                }
+            }
+
+            // Adiciona um event listener para o evento de click nos botões que chama a função verificaResultado().
+            carroBtn.addEventListener("click", verificaResultado);
+            caminhaoBtn.addEventListener("click", verificaResultado);
+        }
+
+        /*
+A lógica é basicamente calcular o tempo que cada veículo levará para percorrer a distância entre as cidades,
+levando em consideração a velocidade e o tempo adicional do caminhão para passar nos pedágios.
+Em seguida, é possível determinar a distância percorrida por cada veículo quando eles se cruzarem na rodovia.
+Por fim, é comparado qual dos veículos está mais próximo da cidade de Ribeirão Preto
+*/
+    </script>
+</body>
+
+</html>
