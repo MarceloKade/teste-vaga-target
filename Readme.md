@@ -5,6 +5,7 @@
 - [Testes](#testes-para-vaga-de-estágio)
   - [Apresentação](#apresentação)
   - [Objetivo](#objetivo)
+  - [Deploy](#deploy)
   - [Testes](#testes)
   - [Tecnologias](#tecnologias)
 
@@ -16,6 +17,9 @@ Este repositório contém os testes realizados para a vaga de estágio na empres
 
 O objetivo deste projeto é apresentar uma série de testes que foram realizados como parte do processo seletivo para a vaga de estágio na empresa Target.
 
+### Deploy
+
+- Link : <a href="https://teste-vaga-estagio-target.netlify.app/" target="_blank">Testes</a>
 
 ### Testes
 
