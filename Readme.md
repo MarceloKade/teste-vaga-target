@@ -64,4 +64,4 @@ Este projeto utiliza as seguintes tecnologias:
 
 ## Considerações finais
 
-Gostaria de agradecer imensamente a empresa Target pela oportunidade de participar do processo seletivo para a vaga de estágio. Foi uma experiência muito enriquecedora para mim. Estou ansioso para contribuir com meu conhecimento e habilidades em futuras oportunidades de trabalho com a Target. Mais uma vez, muito obrigado!
+Gostaria de agradecer imensamente a empresa Target pela oportunidade de participar do processo seletivo para a vaga de Desenvolvedor. Foi uma experiência muito enriquecedora para mim. Estou ansioso para contribuir com meu conhecimento e habilidades em futuras oportunidades de trabalho com a Target. Mais uma vez, muito obrigado!
