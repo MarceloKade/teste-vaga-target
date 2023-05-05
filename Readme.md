@@ -1,8 +1,8 @@
-# Testes para vaga de estágio
+# Testes para vaga Target
 
 ## Menu
 
-- [Testes](#testes-para-vaga-de-estágio)
+- [Testes](#testes-para-vaga-target)
   - [Apresentação](#apresentação)
   - [Objetivo](#objetivo)
   - [Deploy](#deploy)
@@ -12,11 +12,11 @@
 
 ### Apresentação
 
-Este repositório contém os testes realizados para a vaga de estágio na empresa Target.
+Este repositório contém os testes realizados para a vaga de Desenvolvedor na empresa Target.
 
 ### Objetivo
 
-O objetivo deste projeto é apresentar uma série de testes que foram realizados como parte do processo seletivo para a vaga de estágio na empresa Target.
+O objetivo deste projeto é apresentar uma série de testes que foram realizados como parte do processo seletivo para a vaga de Desenvolvedor na empresa Target.
 
 ### Deploy
 
